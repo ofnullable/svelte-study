@@ -1,0 +1,27 @@
+{
+  "name": "svelte-study",
+  "version": "0.0.1",
+  "main": "main.js",
+  "repository": "https://github.com/ofnullable/svelte-study",
+  "author": "ofnullable",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "webpack-dev-server --mode development --hot",
+    "build": "cross-env NODE_ENV=production webpack --mode production"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.0",
+    "css-loader": "^3.4.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "style-loader": "^1.1.3",
+    "svelte": "^3.18.1",
+    "svelte-loader": "^2.13.6",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
