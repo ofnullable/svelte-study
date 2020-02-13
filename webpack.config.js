@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  devtool: isProd ? 'hidden-source-map' : false,
+  devtool: isProd ? 'hidden-source-map' : 'eval',
   entry: {
     app: path.join(__dirname, 'src/main.js'),
   },
@@ -22,12 +22,23 @@ module.exports = {
         ],
       },
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
         test: /\.svelte$/,
         use: {
           loader: 'svelte-loader',
           options: {
             emitCss: true,
-            hotReload: true,
+            hotReload: false,
+            hotOptions: {
+              optimistic: true,
+            },
+            preprocess: require('svelte-preprocess')({}),
           },
         },
       },
@@ -38,19 +49,26 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.svelte'],
+    alias: {
+      svelte: path.resolve('node_modules', 'svelte'),
+    },
+    extensions: ['.mjs', '.js', '.svelte'],
+    mainFields: ['svelte', 'browser', 'module', 'main'],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
+      minify: {
+        collapseWhitespace: true,
+      },
     }),
-    ...(isProd ? [new MiniCssExtractPlugin({ filename: '[name].css' })] : []),
+    ...(isProd ? [new MiniCssExtractPlugin({ filename: '[name].css?[hash]' })] : []),
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
-    chunkFilename: '[name].[id].js',
+    filename: '[name].js?[hash]',
+    chunkFilename: '[name].[id].js?[hash]',
   },
 };
