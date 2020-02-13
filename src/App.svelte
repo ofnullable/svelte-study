@@ -1,11 +1,13 @@
 <script>
-  const name = "Svelte";
+  import Router from 'svelte-spa-router';
+  import Layout from './layout/Layout';
+  import routes from './router';
+
+  import './App.css';
+
+  const name = 'Svelte';
 </script>
 
-<style>
-  h1 {
-    color: purple;
-  }
-</style>
-
-<h1>Hello {name}!</h1>
+<Layout>
+  <Router {routes} />
+</Layout>
