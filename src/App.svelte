@@ -4,6 +4,7 @@
   import routes from './router';
 
   import './App.css';
+  import 'normalize.css'
 
   const name = 'Svelte';
 </script>
