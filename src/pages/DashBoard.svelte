@@ -1,6 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
-
+  import { fade } from 'svelte/transition';
   let name = '';
 
   setTimeout(() => {
@@ -13,7 +12,7 @@
 </style>
 
 {#if !name}
-  <h1>Loading....</h1>
+  <h1 in:fade>Loading....</h1>
 {:else}
-  <h1>{name}</h1>
+  <h1 in:fade>{name}</h1>
 {/if}

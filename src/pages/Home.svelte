@@ -1,11 +1,18 @@
 <script>
+  import { fade } from 'svelte/transition';
+
   const name = 'Svelte';
 </script>
 
 <style>
   h1 {
-    color: purple;
+    color: #e12343;
   }
 </style>
 
-<h1>Hello {name}!</h1>
+<div in:fade>
+  <h1>Hello {name}!</h1>
+  <div class="card">
+    Card
+  </div>
+</div>
