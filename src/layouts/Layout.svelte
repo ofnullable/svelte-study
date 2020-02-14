@@ -3,12 +3,8 @@
   import Footer from './Footer';
 </script>
 
-<style>
-
-</style>
-
-<Header />
-<main>
-  <slot />
+<Header/>
+<main class="container">
+  <slot/>
 </main>
-<Footer />
+<Footer/>
