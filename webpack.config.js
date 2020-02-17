@@ -43,8 +43,21 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: [isProd ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader'],
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+              sassOptions: {
+                fiber: require('fibers'),
+              },
+            },
+          },
+        ],
       },
     ],
   },
