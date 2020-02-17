@@ -26,14 +26,12 @@
     margin: 0 auto;
     width: 100%;
     max-width: 1440px;
-    padding: 0 16px;
+    padding: 8px 16px;
   }
 
   @media (max-width: 1199.98px) {
     .container {
       margin: 0;
-      width: 100%;
-      padding: 8px 16px;
     }
   }
 
