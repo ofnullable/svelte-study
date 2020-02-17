@@ -16,10 +16,18 @@
         },
     ),
     '/dashboard': DashBoard,
-    '/:id': Trade,
+    '/:symbol': Trade,
     '*': Error,
   };
 </script>
+
+<div id="root">
+  <Header/>
+  <main class="container">
+    <Router {routes}/>
+  </main>
+  <Footer/>
+</div>
 
 <style lang="scss">
   .container {
@@ -41,9 +49,3 @@
     }
   }
 </style>
-
-<Header/>
-<main class="container">
-  <Router {routes}/>
-</main>
-<Footer/>

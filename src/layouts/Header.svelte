@@ -1,10 +1,34 @@
 <script>
   import { link } from 'svelte-spa-router';
-
-  export const params = {};
+  import { token } from '../store/token';
 </script>
 
+<header>
+  <nav>
+    <div>
+      <a class="title" href="/AC3" use:link>
+        <i class="material-icons icon">autorenew</i>
+        icondelta
+      </a>
+    </div>
+    <div class="subtitle">
+      <p>{`${$token.symbol} ${$token.name}`}</p>
+    </div>
+  </nav>
+</header>
+
 <style lang="scss">
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+
   header {
     height: 60px;
     background: #fff;
@@ -30,9 +54,24 @@
     display: inline-flex;
     text-decoration: none;
 
-    &.title {
-      margin-right: 1em;
-      text-transform: uppercase;
+    .icon {
+      color: #1aaaba;
+      font-size: 2rem;
+      margin-right: 0.5rem;
+      animation: spin 1.5s infinite linear;
+    }
+  }
+
+  .title {
+    margin-right: 1em;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    font-size: 0;
+
+    p {
+      margin: 0;
     }
   }
 
@@ -47,6 +86,17 @@
         padding: 0 8px;
       }
     }
+
+    .title {
+      font-size: 0;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-weight: bold;
+      align-items: center;
+      display: inline-flex;
+    }
   }
 
   @media (max-width: 767.98px) {
@@ -55,9 +105,3 @@
     }
   }
 </style>
-
-<header>
-  <nav>
-    <a class="title" href="/AC3" use:link>icondelta</a>
-  </nav>
-</header>

@@ -1,22 +1,24 @@
 <script>
+  import { onMount, onDestroy, beforeUpdate } from 'svelte';
   import { fade } from 'svelte/transition';
+  import TokenList from '../components/tokens/TokenList';
+  import TokenInfo from '../components/tokens/TokenInfo';
+  import { getToken } from '../common/utils';
+  import { token } from '../store/token';
 
+  export let params = {};
   const name = 'Svelte';
 
-  export const params = {};
+  onMount(() => {
+    console.log($token);
+  });
+  onDestroy(() => {
+    console.log('destroy');
+  });
+  beforeUpdate(() => {
+    $token = getToken(params.symbol);
+  });
 </script>
 
-<style>
-  h1 {
-    color: #e12343;
-  }
-</style>
-
-<div in:fade>
-  <h1>Hello {name}!</h1>
-  <div class="card">
-    <div class="card__title">Card Title</div>
-    <div class="card__body">Card Body</div>
-    <div class="card__footer">Card footer</div>
-  </div>
-</div>
+<TokenList params={params}/>
+<TokenInfo/>
