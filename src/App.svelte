@@ -5,7 +5,6 @@
   import './App.scss';
   import 'normalize.css';
 
-  const name = 'Svelte';
   const routes = { '/:id': Layout, '*': Layout };
 </script>
 

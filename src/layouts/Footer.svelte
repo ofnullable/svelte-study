@@ -1,4 +1,36 @@
-<style>
+<style lang="scss">
+  footer {
+    width: 100%;
+    padding: 40px;
+    margin: 0 auto;
+    color: #676767;
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 1199.98px) {
+    footer {
+      margin: 0;
+      width: 100%;
+      padding: 8px 16px;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    footer {
+      padding: 8px;
+      margin-top: 2rem;
+      align-items: flex-end;
+      flex-direction: column;
+
+      & > * {
+        padding-top: 0.5rem;
+      }
+    }
+  }
+
   a {
     color: #414141;
     text-decoration: none;
@@ -21,5 +53,5 @@
       </svg>
     </a>
   </div>
-  <div class="copy">Copyright &copy; icondelta, Inc. All rights reserved.</div>
+  <div>Copyright &copy; icondelta, Inc. All rights reserved.</div>
 </footer>

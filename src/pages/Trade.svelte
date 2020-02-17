@@ -2,6 +2,8 @@
   import { fade } from 'svelte/transition';
 
   const name = 'Svelte';
+
+  export const params = {};
 </script>
 
 <style>
@@ -13,6 +15,8 @@
 <div in:fade>
   <h1>Hello {name}!</h1>
   <div class="card">
-    Card
+    <div class="card__title">Card Title</div>
+    <div class="card__body">Card Body</div>
+    <div class="card__footer">Card footer</div>
   </div>
 </div>
