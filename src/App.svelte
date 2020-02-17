@@ -1,14 +1,12 @@
 <script>
   import Router from 'svelte-spa-router';
-  import Layout from './layout/Layout';
-  import routes from './router';
+  import Layout from './layouts/Layout';
 
-  import './App.css';
-  import 'normalize.css'
+  import './App.scss';
+  import 'normalize.css';
 
   const name = 'Svelte';
+  const routes = { '/:id': Layout, '*': Layout };
 </script>
 
-<Layout>
-  <Router {routes} />
-</Layout>
+<Router {routes}/>
