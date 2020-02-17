@@ -5,7 +5,7 @@
   import './App.scss';
   import 'normalize.css';
 
-  const routes = { '/:id': Layout, '*': Layout };
+  const routes = { '/:symbol': Layout, '*': Layout };
 </script>
 
 <Router {routes}/>
