@@ -1,7 +1,7 @@
 <script>
   import { css } from 'emotion';
 
-  import media from '../../common/media'
+  import media from '../../common/media';
 
   const tokenInfo = css`
     width: calc(72% - 16px);

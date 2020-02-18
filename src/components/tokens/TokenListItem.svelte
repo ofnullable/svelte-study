@@ -1,7 +1,9 @@
 <script>
+  import { css } from 'emotion';
   import { link } from 'svelte-spa-router';
   import active from 'svelte-spa-router/active';
-  import { css } from 'emotion';
+
+  import { menuVisible, toggleVisible } from '../../store/ui';
 
   export let token;
 
@@ -51,7 +53,13 @@
   `;
 </script>
 
-<a class={tokenListItem} href={`/${token.symbol}`} use:link use:active={{path: `/${token.symbol}`,className:'active'}}>
+<a
+    class={tokenListItem}
+    href={`/${token.symbol}`}
+    use:link
+    use:active={{path: `/${token.symbol}`, className:'active'}}
+    on:click={toggleVisible}
+>
   <ul>
     <li>
       <span>{token.symbol}</span>

@@ -2,7 +2,7 @@
   import { css } from 'emotion';
   import InputWrapper from '../common/InputWrapper';
 
-  let searchText = '';
+  export let searchText = '';
 
   const iconStyle = css`
     cursor: pointer;

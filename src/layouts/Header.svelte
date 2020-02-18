@@ -1,17 +1,17 @@
 <script>
-  import { link } from 'svelte-spa-router';
   import { token } from '../store/token';
+  import { menuVisible, toggleVisible } from '../store/ui';
 </script>
 
 <header>
   <nav>
     <div>
-      <a class="title" href="/AC3" use:link>
+      <span class="title">
         <i class="material-icons icon">autorenew</i>
         icondelta
-      </a>
+      </span>
     </div>
-    <div class="subtitle">
+    <div class="subtitle" on:click={toggleVisible}>
       <p>{`${$token.symbol} ${$token.name}`}</p>
     </div>
   </nav>
@@ -44,7 +44,8 @@
     }
   }
 
-  a {
+  span {
+    cursor: default;
     color: #000;
     height: 100%;
     font-weight: 700;
@@ -68,6 +69,7 @@
   }
 
   .subtitle {
+    cursor: pointer;
     font-size: 0;
 
     p {
