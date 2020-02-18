@@ -19,7 +19,7 @@ export default (() => {
 
     if (endIndex + 1 === keys.length) {
       // xl down applies to all sizes
-      return up('xs');
+      return up(0);
     }
 
     const value = typeof values[key] === 'number' && endIndex > 0 ? values[key] : key;

@@ -1,5 +1,6 @@
 <script>
   import { fade } from 'svelte/transition';
+
   let name = '';
 
   setTimeout(() => {

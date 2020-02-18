@@ -1,13 +1,11 @@
 <script>
   import { onMount, onDestroy, beforeUpdate } from 'svelte';
-  import { fade } from 'svelte/transition';
   import TokenList from '../components/tokens/TokenList';
   import TokenInfo from '../components/tokens/TokenInfo';
   import { getToken } from '../common/utils';
   import { token } from '../store/token';
 
   export let params = {};
-  const name = 'Svelte';
 
   onMount(() => {
     console.log($token);
@@ -20,5 +18,5 @@
   });
 </script>
 
-<TokenList params={params}/>
+<TokenList/>
 <TokenInfo/>

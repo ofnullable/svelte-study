@@ -30,17 +30,19 @@
 </div>
 
 <style lang="scss">
+  #root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   .container {
     margin: 0 auto;
     width: 100%;
     max-width: 1440px;
     padding: 8px 16px;
-  }
-
-  @media (max-width: 1199.98px) {
-    .container {
-      margin: 0;
-    }
+    height: calc(100% - 160px);
+    flex: 1 1 auto;
   }
 
   @media (max-width: 767.98px) {
