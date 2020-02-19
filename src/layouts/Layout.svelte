@@ -41,7 +41,6 @@
     width: 100%;
     max-width: 1440px;
     padding: 8px 16px;
-    height: calc(100% - 160px);
     flex: 1 1 auto;
   }
 

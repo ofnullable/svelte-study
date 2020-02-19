@@ -2,8 +2,8 @@
   import Router from 'svelte-spa-router';
   import Layout from './layouts/Layout';
 
-  import './App.scss';
   import 'normalize.css';
+  import './App.scss';
 
   const routes = { '/:symbol': Layout, '*': Layout };
 </script>

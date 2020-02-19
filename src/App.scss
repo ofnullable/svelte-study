@@ -19,6 +19,11 @@ body {
   box-sizing: inherit;
 }
 
+input:focus, button:focus {
+  outline-width: 1px;
+  outline-color: rgb(26, 170, 186, .7);
+}
+
 .card {
   background-color: #fff;
   border: 1px solid #e4e5e8;
