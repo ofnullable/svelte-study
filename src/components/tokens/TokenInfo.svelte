@@ -3,6 +3,7 @@
 
   import { token } from '../../store/token';
   import media from '../../common/media';
+  import TokenBalance from './TokenBalance';
 
   const tokenInfoWrapper = css`
     width: calc(72% - 16px);
@@ -36,6 +37,8 @@
       <p class={tokenPrice}>{$token.lastPrice || '-'}</p>
     </div>
   </div>
-  <div class="card__body"></div>
-  <!--  <div class="card__footer">Card footer</div>-->
+  <div class="card__body">
+    <TokenBalance />
+  </div>
+<!--  <div class="card__footer">Card footer</div>-->
 </div>

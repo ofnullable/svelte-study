@@ -1,8 +1,8 @@
 <script>
   import { css } from 'emotion';
 
-  import TokenListItem from './TokenListItem.svelte';
-  import TokenSearchBar from './TokenSearchBar.svelte';
+  import TokenListItem from './TokenListItem';
+  import TokenSearchBar from './TokenSearchBar';
   import { tokens } from '../../store/token';
   import { menuVisible, toggleVisible } from '../../store/ui';
 
@@ -20,12 +20,12 @@
     return (name && name.toLowerCase().includes(searchText)) || (symbol && symbol.toLowerCase().includes(searchText));
   }) : $tokens;
 
-  $: overlayZIndex = css`
+  $: overlaySize = css`
     ${media.down('lg')} {
       ${$menuVisible ?
-      css`width: 100%; height: 100%;` :
-      css`width: 0; height: 0;`
-  }
+        css`width: 100%; height: 100%;` :
+        css`width: 0; height: 0;`
+      }
     }
   `;
 
@@ -33,6 +33,13 @@
     searchText = '';
     toggleVisible();
   }
+
+  const overlay = css`
+    top: 0;
+    left: 0;
+    z-index: 99;
+    position: absolute;
+  `;
 
   const tokenListStyle = css`
     top: 8px;
@@ -76,13 +83,6 @@
       max-height: 70%;
     }
   `;
-
-  const overlay = css`
-      top: 0;
-      left: 0;
-      z-index: 99;
-      position: absolute;
-  `;
 </script>
 
 <div class={`card ${tokenListStyle} ${visible}`}>
@@ -104,4 +104,4 @@
   </div>
   <div class="card__footer"></div>
 </div>
-<div class={`${overlay} ${visible} ${overlayZIndex}`} on:click={resetText}></div>
+<div class={`${overlay} ${visible} ${overlaySize}`} on:click={resetText}></div>
