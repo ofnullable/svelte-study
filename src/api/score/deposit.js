@@ -1,0 +1,1 @@
+import { scoreInstance } from '../instance';

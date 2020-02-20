@@ -1,3 +1,13 @@
+export const isProd = process.env.NODE_ENV === 'production';
+
+export const SCORE_URL = isProd
+    ? 'https://wallet.icon.foundation'
+    : 'https://bicon.net.solidwallet.io';
+
+export const SERVER_URL = isProd
+    ? ''
+    : 'http://localhost:8000';
+
 export const color_primary = '#e12343';
 
 export const TOKENS = [{
