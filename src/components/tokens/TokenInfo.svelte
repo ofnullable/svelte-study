@@ -10,10 +10,13 @@
     ${media.down('lg')} {
       width: 100%;
     }
+    .card__title {
+      display: flex;
+    }
   `;
 
   const tokenInfo = css`
-    padding: 4px 0;
+    flex: 1 0;
     .symbol {
       font-size: 1.2rem;
       font-weight: bold;
@@ -28,6 +31,11 @@
     color: #1aaaba;
     font-size: 2rem;
   `;
+
+  const balanceInfo = css`
+    flex: 1 0;
+    display: flex;
+  `;
 </script>
 
 <div class={`card ${tokenInfoWrapper}`}>
@@ -36,9 +44,12 @@
       <span class="symbol">{$token.symbol}</span><span class="name">{$token.name}</span>
       <p class={tokenPrice}>{$token.lastPrice || '-'}</p>
     </div>
+    <div class={balanceInfo}>
+
+    </div>
   </div>
   <div class="card__body">
-    <TokenBalance />
+    <TokenBalance/>
   </div>
-<!--  <div class="card__footer">Card footer</div>-->
+  <!--  <div class="card__footer">Card footer</div>-->
 </div>
