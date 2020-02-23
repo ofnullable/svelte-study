@@ -1,33 +1,15 @@
-<script>
-  import Router, { replace, wrap } from 'svelte-spa-router';
+<div id="root">
+  <Header />
+  <main class="container">
+    <slot />
+  </main>
+  <Footer />
+</div>
 
+<script>
   import Header from './Header';
   import Footer from './Footer';
-
-  import Trade from '../pages/Trade';
-  import Error from '../pages/Error';
-  import DashBoard from '../pages/DashBoard';
-
-  const routes = {
-    '/': wrap(
-        Trade,
-        _ => {
-          replace('/AC3');
-        },
-    ),
-    '/dashboard': DashBoard,
-    '/:symbol': Trade,
-    '*': Error,
-  };
 </script>
-
-<div id="root">
-  <Header/>
-  <main class="container">
-    <Router {routes}/>
-  </main>
-  <Footer/>
-</div>
 
 <style lang="scss">
   #root {

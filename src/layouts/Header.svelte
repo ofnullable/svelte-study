@@ -1,8 +1,3 @@
-<script>
-  import { token } from '../store/token';
-  import { menuVisible, toggleVisible } from '../store/ui';
-</script>
-
 <header>
   <nav>
     <div>
@@ -11,11 +6,16 @@
         icondelta
       </span>
     </div>
-    <div class="subtitle" on:click={toggleVisible}>
+    <div class="subtitle" on:click="{toggleVisible}">
       <p>{`${$token.symbol} ${$token.name}`}</p>
     </div>
   </nav>
 </header>
+
+<script>
+  import { token } from '../store/token';
+  import { menuVisible, toggleVisible } from '../store/ui';
+</script>
 
 <style lang="scss">
   @keyframes spin {
@@ -32,9 +32,9 @@
   header {
     height: 60px;
     background: #fff;
-    box-shadow: 0 3px 10px 0 rgba(66, 66, 66, .05);
+    box-shadow: 0 4px 12px 0 rgba(66, 66, 66, 0.05);
 
-    nav {
+    & nav {
       width: 100%;
       height: 100%;
       display: flex;
