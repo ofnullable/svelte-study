@@ -22,25 +22,27 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.m?js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        loader: 'babel-loader',
       },
       {
         test: /\.svelte$/,
-        use: {
-          loader: 'svelte-loader',
-          options: {
-            emitCss: true,
-            hotReload: false,
-            hotOptions: {
-              optimistic: true,
+        use: [
+          {
+            loader: 'svelte-loader',
+            options: {
+              emitCss: true,
+              hotReload: false,
+              hotOptions: {
+                optimistic: true,
+                noPreserveState: true,
+              },
+              preprocess: require('svelte-preprocess')({}),
+              externalDependencies: ['babel-loader'],
             },
-            preprocess: require('svelte-preprocess')({}),
           },
-        },
+        ],
       },
       {
         test: /\.(sa|sc|c)ss$/,
