@@ -1,3 +1,22 @@
+<div class="{`card ${tokenListStyle} ${visible}`}">
+  <div class="card__title">
+    <TokenSearchBar bind:searchText />
+  </div>
+  <div class="card__body">
+    <div class="inner_scroll">
+      {#if tokenList.length}
+        {#each tokenList as token (token.address)}
+          <TokenListItem {token} />
+        {/each}
+      {:else}
+        <p>No results found.</p>
+      {/if}
+    </div>
+  </div>
+  <div class="card__footer"></div>
+</div>
+<div class="{`${overlay(visible)} ${visible}`}" on:click="{resetText}"></div>
+
 <script>
   import { css } from 'emotion';
 
@@ -16,29 +35,33 @@
     }
   `;
 
-  $: tokenList = searchText ? $tokens.filter(({ name, symbol }) => {
-    return (name && name.toLowerCase().includes(searchText)) || (symbol && symbol.toLowerCase().includes(searchText));
-  }) : $tokens;
+  $: tokenList =
+    searchText || searchText.trim()
+      ? $tokens.filter(({ name, symbol }) => new RegExp(searchText, 'i').test(`${symbol} ${name}`))
+      : $tokens;
 
-  $: overlaySize = css`
-    ${media.down('lg')} {
-      ${$menuVisible ?
-        css`width: 100%; height: 100%;` :
-        css`width: 0; height: 0;`
-      }
-    }
-  `;
-
-  function resetText() {
+  const resetText = () => {
     searchText = '';
     toggleVisible();
-  }
+  };
 
-  const overlay = css`
+  const overlay = visible => css`
     top: 0;
     left: 0;
     z-index: 99;
     position: absolute;
+
+    ${media.down('lg')} {
+      ${visible
+        ? css`
+            width: 100%;
+            height: 100%;
+          `
+        : css`
+            width: 0;
+            height: 0;
+          `}
+    }
   `;
 
   const tokenListStyle = css`
@@ -84,24 +107,3 @@
     }
   `;
 </script>
-
-<div class={`card ${tokenListStyle} ${visible}`}>
-  <div class="card__title">
-    <TokenSearchBar bind:searchText={searchText}/>
-  </div>
-  <div class="card__body">
-    <div class="inner_scroll">
-      {#if tokenList.length}
-        {#each tokenList as token (token.address)}
-          <TokenListItem token={token}/>
-        {/each}
-      {:else}
-        <p>
-          No results found.
-        </p>
-      {/if}
-    </div>
-  </div>
-  <div class="card__footer"></div>
-</div>
-<div class={`${overlay} ${visible} ${overlaySize}`} on:click={resetText}></div>

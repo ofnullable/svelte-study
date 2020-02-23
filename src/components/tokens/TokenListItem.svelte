@@ -1,3 +1,19 @@
+<a
+  use:link
+  class="{tokenListItem}"
+  href="{`/${token.symbol}`}"
+  use:active="{{ path: `/${token.symbol}`, className: 'active' }}"
+  on:click="{toggleVisible}"
+>
+  <ul>
+    <li>
+      <span>{token.symbol}</span>
+      <span>{token.name}</span>
+      <span>{token.lastPrice || '-'}</span>
+    </li>
+  </ul>
+</a>
+
 <script>
   import { css } from 'emotion';
   import { link } from 'svelte-spa-router';
@@ -38,33 +54,17 @@
       white-space: nowrap;
       text-overflow: ellipsis;
     }
-    span:nth-child(1) {
+    span:nth-of-type(1) {
       width: 25%;
       color: #414141;
       font-weight: 700;
     }
-    span:nth-child(2) {
+    span:nth-of-type(2) {
       width: 55%;
       color: #676767;
     }
-    span:nth-child(3) {
+    span:nth-of-type(3) {
       width: 30%;
     }
   `;
 </script>
-
-<a
-    class={tokenListItem}
-    href={`/${token.symbol}`}
-    use:link
-    use:active={{path: `/${token.symbol}`, className:'active'}}
-    on:click={toggleVisible}
->
-  <ul>
-    <li>
-      <span>{token.symbol}</span>
-      <span>{token.name}</span>
-      <span>{token.lastPrice || '-'}</span>
-    </li>
-  </ul>
-</a>

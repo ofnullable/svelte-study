@@ -1,3 +1,18 @@
+<div class="{`card ${tokenInfoWrapper}`}">
+  <div class="card__title">
+    <div class="{tokenInfo}">
+      <span class="symbol">{$token.symbol}</span>
+      <span class="name">{$token.name}</span>
+      <p class="{tokenPrice}">{$token.lastPrice || '-'}</p>
+    </div>
+    <div class="{balanceInfo}"></div>
+  </div>
+  <div class="card__body">
+    <TokenBalance />
+  </div>
+  <!--  <div class="card__footer">Card footer</div>-->
+</div>
+
 <script>
   import { css } from 'emotion';
 
@@ -22,7 +37,7 @@
       font-weight: bold;
     }
     .name {
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
   `;
 
@@ -37,19 +52,3 @@
     display: flex;
   `;
 </script>
-
-<div class={`card ${tokenInfoWrapper}`}>
-  <div class="card__title">
-    <div class={tokenInfo}>
-      <span class="symbol">{$token.symbol}</span><span class="name">{$token.name}</span>
-      <p class={tokenPrice}>{$token.lastPrice || '-'}</p>
-    </div>
-    <div class={balanceInfo}>
-
-    </div>
-  </div>
-  <div class="card__body">
-    <TokenBalance/>
-  </div>
-  <!--  <div class="card__footer">Card footer</div>-->
-</div>

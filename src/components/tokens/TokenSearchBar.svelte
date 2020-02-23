@@ -1,3 +1,8 @@
+<InputWrapper id="search" className="{searchBox}">
+  <input id="search" type="search" bind:value="{searchText}" placeholder="Search Token" />
+  <i class="{`material-icons ${iconStyle}`}">search</i>
+</InputWrapper>
+
 <script>
   import { css } from 'emotion';
   import InputWrapper from '../common/InputWrapper';
@@ -20,8 +25,3 @@
     position: absolute;
   `;
 </script>
-
-<InputWrapper id="search" className={searchBox}>
-  <input id="search" type="search" bind:value={searchText} placeholder="Search Token"/>
-  <i class={`material-icons ${iconStyle}`}>search</i>
-</InputWrapper>

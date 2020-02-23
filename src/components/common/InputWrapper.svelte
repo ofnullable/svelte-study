@@ -1,3 +1,8 @@
+<div class="{`${inputWrapper} ${className || ''}`}">
+  <label for="{id}">{label || ''}</label>
+  <slot />
+</div>
+
 <script>
   import { css } from 'emotion';
 
@@ -15,10 +20,9 @@
       padding: 8px 12px;
       background-color: #fafafa;
     }
-`;
-</script>
 
-<div class={`${inputWrapper} ${className || ''}`}>
-  <label for={id}>{label || ''}</label>
-  <slot/>
-</div>
+    & + & {
+      margin-left: 1rem;
+    }
+  `;
+</script>

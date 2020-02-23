@@ -1,3 +1,9 @@
+<div class="{balanceMenu}">
+  <span on:click="{changeType}" class:active>DEPOSIT</span>
+  <span on:click="{changeType}" class:active="{!active}">WITHDRAW</span>
+  <TokenBalanceForm {type} />
+</div>
+
 <script>
   import { css } from 'emotion';
   import TokenBalanceForm from './TokenBalanceForm';
@@ -29,9 +35,3 @@
     }
   `;
 </script>
-
-<div class={balanceMenu}>
-  <span on:click={changeType} class:active>DEPOSIT</span>
-  <span on:click={changeType} class:active={!active}>WITHDRAW</span>
-  <TokenBalanceForm type={type}/>
-</div>
