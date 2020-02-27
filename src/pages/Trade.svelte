@@ -1,5 +1,11 @@
+<Layout>
+  <TokenList />
+  <TokenInfo />
+</Layout>
+
 <script>
   import { onMount, onDestroy, beforeUpdate } from 'svelte';
+  import Layout from '../layouts/Layout';
   import TokenList from '../components/tokens/TokenList';
   import TokenInfo from '../components/tokens/TokenInfo';
   import { getToken } from '../common/utils';
@@ -17,6 +23,3 @@
     $token = getToken(params.symbol);
   });
 </script>
-
-<TokenList/>
-<TokenInfo/>

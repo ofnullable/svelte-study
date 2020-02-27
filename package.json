@@ -12,8 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "emotion": "^10.0.27",
-    "svelte-spa-router": "^2.0.0"
+    "emotion": "^10.0.27"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -39,6 +38,7 @@
     "svelte": "^3.18.2",
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^3.4.0",
+    "svelte-spa-router": "^2.0.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.3"
@@ -49,7 +49,8 @@
       "not dead"
     ],
     "development": [
-      "last 2 versions"
+      "cover 99.9%",
+      "not dead"
     ]
   }
 }

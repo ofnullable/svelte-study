@@ -1,3 +1,9 @@
+<div class="error card">
+  <h1>404</h1>
+  <h2>page not found..</h2>
+  <p>Requested path: {`/${params.wild}`}</p>
+</div>
+
 <script>
   export let params = {};
 </script>
@@ -15,9 +21,3 @@
     }
   }
 </style>
-
-<div class="error card">
-  <h1>404</h1>
-  <h2>page not found..</h2>
-  <p>Requested path: {`/${params.wild}`}</p>
-</div>
