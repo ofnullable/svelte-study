@@ -3,12 +3,10 @@ module.exports = {
     [
       '@babel/preset-env',
       {
+        corejs: { version: 3, proposals: true },
         useBuiltIns: 'usage',
         modules: false,
-        corejs: 3,
-        debug: true,
       },
     ],
   ],
-  plugins: ['@babel/plugin-proposal-optional-chaining'],
 };

@@ -5,7 +5,6 @@
   "repository": "https://github.com/ofnullable/svelte-study",
   "author": "ofnullable",
   "license": "MIT",
-  "private": false,
   "scripts": {
     "start": "webpack-dev-server --mode development --hot --host 0.0.0.0 --disable-host-check",
     "build": "cross-env NODE_ENV=production webpack --mode production"
@@ -25,7 +24,7 @@
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
     "fibers": "^4.0.2",
-    "html-loader": "^0.5.5",
+    "html-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "normalize.css": "^8.0.1",
@@ -39,6 +38,7 @@
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^3.4.0",
     "svelte-spa-router": "^2.0.0",
+    "url-loader": "^4.0.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.3"
