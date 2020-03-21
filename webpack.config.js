@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const babelrc = require('./babel.config');
 
 const mode = process.env.NODE_ENV || 'development';
 const isProd = process.env.NODE_ENV === 'production';
@@ -13,8 +12,6 @@ const loaders = {
     options: {
       compact: false,
       cacheDirectory: !isProd,
-      babelrc: false,
-      ...babelrc,
     },
   },
   svelte: {
@@ -22,7 +19,21 @@ const loaders = {
     options: {
       css: false,
       emitCss: true,
-      preprocess: require('svelte-preprocess')({}),
+      preprocess: require('svelte-preprocess')({
+        babel: {
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                modules: false,
+                targets: {
+                  esmodules: true,
+                },
+              },
+            ],
+          ],
+        },
+      }),
     },
   },
   html: {
