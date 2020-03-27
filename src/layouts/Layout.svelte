@@ -13,17 +13,17 @@
 
 <style lang="scss">
   #root {
-    height: 100%;
+    flex: 1 1;
     display: flex;
     flex-direction: column;
   }
 
   .container {
-    margin: 0 auto;
     width: 100%;
+    margin: 0 auto;
+    flex: 1 1 auto;
     max-width: 1440px;
     padding: 8px 16px;
-    flex: 1 1 auto;
   }
 
   @media (max-width: 767.98px) {

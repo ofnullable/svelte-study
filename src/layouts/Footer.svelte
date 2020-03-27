@@ -16,7 +16,7 @@
 <style lang="scss">
   footer {
     width: 100%;
-    padding: 40px;
+    padding: 40px 16px;
     margin: 0 auto;
     color: #676767;
     max-width: 1440px;
