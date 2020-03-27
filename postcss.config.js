@@ -1,4 +1,3 @@
 module.exports = {
-  map: true,
-  plugins: [require('cssnano'), require('autoprefixer'), require('postcss-flexbugs-fixes')],
+  plugins: [require('postcss-flexbugs-fixes'), require('postcss-preset-env'), require('cssnano')],
 };

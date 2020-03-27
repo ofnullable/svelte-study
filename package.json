@@ -39,6 +39,7 @@
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^3.6.0",
     "svelte-spa-router": "2.0.0",
+    "terser-webpack-plugin": "^2.3.5",
     "url-loader": "^4.0.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.10",
@@ -50,8 +51,7 @@
       "not dead"
     ],
     "development": [
-      "cover 99.9%",
-      "not dead"
+      "defaults"
     ]
   }
 }
